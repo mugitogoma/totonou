@@ -31,33 +31,27 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-    /* 画像のはみ出し防止設定（チャッピーさん推奨） */
     img {
       max-width: 100%;
       height: auto;
     }
 
-    /* 全体の基本設定（チャッピーさん推奨の可変フォントと折り返し制御） */
     body {
       font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      font-size: clamp(14px, 4vw, 16px); /* 画面サイズに合わせて14px〜16pxで自動伸縮 */
+      font-size: clamp(14px, 4vw, 16px); 
       font-weight: 400; 
       line-height: 1.85;
       overflow-x: hidden;
-      
-      /* 日本語の自然な区切りを優先し、URLなど致命的な時だけ折る設定 */
       word-break: normal; 
       overflow-wrap: anywhere; 
     }
 
-    /* 見出しの長さを自動で美しく均等にする魔法 */
     h1, h2, h3 {
       text-wrap: balance;
     }
 
-    /* 1文字だけポツンと落ちるのを防ぐ魔法 */
     p, li, .problem-item {
       text-wrap: pretty;
     }
@@ -105,6 +99,82 @@
       display: block;
       line-height: 1.2;
       margin-top: 2px;
+    }
+
+    /* ヘッダー電話番号 */
+    .header-tel {
+      margin-left: auto;
+      margin-right: 30px;
+      text-decoration: none;
+      color: var(--accent3);
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-tel i { font-size: 1rem; }
+
+    /* --- ハンバーガーボタン --- */
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+      width: 30px;
+      height: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-btn span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      transition: all 0.3s;
+    }
+    .menu-btn.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .menu-btn.active span:nth-child(2) { opacity: 0; }
+    .menu-btn.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    /* --- ナビゲーションメニュー --- */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px; 
+      height: 100vh;
+      background: rgba(247, 251, 253, 0.98);
+      box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      z-index: 1050;
+      padding-top: 80px;
+    }
+    .nav-menu.active {
+      right: 0;
+    }
+    .nav-menu ul {
+      list-style: none;
+      text-align: left;
+      padding: 0 30px;
+    }
+    .nav-menu ul li {
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--line-light);
+      padding-bottom: 10px;
+    }
+    .nav-menu ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      display: block;
+      transition: color 0.3s;
+    }
+    .nav-menu ul li a:hover {
+      color: var(--accent);
     }
 
     /* Hero Section */
@@ -239,6 +309,17 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
+
+    /* 修正箇所：5つ目の悩み事を中央に */
+    @media (min-width: 600px) {
+      .problem-item:nth-child(5) {
+        grid-column: 1 / -1; 
+        justify-self: center; 
+        max-width: calc(50% - 10px); 
+        width: 100%; 
+      }
+    }
+
     .solution-text {
       text-align: center;
       font-size: 1.15rem;
@@ -248,7 +329,7 @@
       letter-spacing: 0.05em;
     }
 
-    /* Greeting Section (左画像・右テキスト) */
+    /* Greeting Section */
     .greeting-wrap {
       background: var(--bg-light);
       border-radius: 12px;
@@ -267,7 +348,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center; /* 頭が切れないように上部基準で調整 */
+      object-position: top center; 
       display: block;
     }
     .greeting-content {
@@ -279,8 +360,8 @@
       justify-content: center;
     }
     .greeting-content h3 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
+      font-size: 1.4rem;
+      margin-bottom: 25px;
       color: var(--text);
       font-weight: 500;
       line-height: 1.6;
@@ -464,9 +545,7 @@
     }
     .cancel-policy li::before {
       content: '※';
-      position: absolute;
-      left: 0;
-      color: var(--accent3);
+      position: absolute; left: 0; color: var(--accent3);
     }
 
     /* Area */
@@ -491,189 +570,75 @@
       justify-content: center;
     }
     .area-sub-title::before, .area-sub-title::after {
-      content: '';
-      width: 30px;
-      height: 2px;
-      background: var(--accent2);
-      margin: 0 15px;
+      content: ''; width: 30px; height: 2px; background: var(--accent2); margin: 0 15px;
     }
     .area-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 40px;
     }
     .area-tag {
-      background: #f4fafc;
-      color: var(--sub);
-      padding: 10px 24px;
-      border-radius: 50px;
-      font-size: 1.05rem;
-      font-weight: 500;
-      border: 1px solid var(--line);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      background: #f4fafc; color: var(--sub); padding: 10px 24px; border-radius: 50px; font-size: 1.05rem; font-weight: 500; border: 1px solid var(--line); transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
     }
-    .area-tag i {
-      color: var(--accent3);
-      font-size: 1rem;
-    }
+    .area-tag i { color: var(--accent3); font-size: 1rem; }
     .area-tag:hover {
-      background: var(--white);
-      border-color: var(--accent);
-      color: var(--accent3);
-      transform: translateY(-2px);
+      background: var(--white); border-color: var(--accent); color: var(--accent3); transform: translateY(-2px);
     }
 
     /* ========================================
        Before & After Section 
     ======================================== */
     .before-after {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;
     }
     .before-after-item {
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-      border: 1px solid var(--line-light);
-      transition: transform 0.3s;
-      display: flex;
-      flex-direction: column;
+      background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid var(--line-light); transition: transform 0.3s; display: flex; flex-direction: column;
     }
     .before-after-item:hover { transform: translateY(-5px); }
     
-    .ba-images {
-      display: flex;
-      gap: 2px;
-      background: var(--line-light);
-    }
-    .ba-img-wrap {
-      position: relative;
-      flex: 1;
-      aspect-ratio: 3 / 4;
-    }
-    .ba-img-wrap img { 
-      width: 100%; 
-      height: 100%; 
-      display: block;
-      object-fit: cover;
-    }
-    .ba-label {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 4px 12px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #fff;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-      font-family: var(--sans);
-    }
+    .ba-images { display: flex; gap: 2px; background: var(--line-light); }
+    .ba-img-wrap { position: relative; flex: 1; aspect-ratio: 3 / 4; }
+    .ba-img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .ba-label { position: absolute; top: 10px; left: 10px; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; color: #fff; border-radius: 4px; letter-spacing: 0.05em; font-family: var(--sans); }
     .ba-label.before { background: rgba(69, 99, 117, 0.8); }
     .ba-label.after { background: rgba(69, 99, 117, 0.8); }
 
     .before-after-content { padding: 25px; flex-grow: 1; }
     .before-after-content h3 { font-size: 1.15rem; margin-bottom: 15px; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--line-light); padding-bottom: 10px;}
     .before-after-content p { font-size: 0.95rem; color: var(--sub); line-height: 1.8; margin-bottom: 10px;}
-    .ba-problem { color: #333333; font-weight: 500; display: block; margin-bottom: 5px;}
-    .ba-solution { color: var(--accent3); font-weight: 500; display: block; margin-bottom: 5px; margin-top: 10px;}
+    
+    .ba-problem, .ba-solution { color: #333333; font-weight: 500; display: block; margin-bottom: 5px; }
+    .ba-solution { margin-top: 10px; }
 
-    /* 実例の時間表示用デザイン */
-    .ba-time {
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px dashed var(--line-light);
-      font-size: 1rem !important;
-      color: var(--text) !important;
-      font-weight: 600;
-    }
-    .ba-time i {
-      color: var(--accent);
-      margin-right: 5px;
-    }
-    .ba-details {
-      font-size: 0.85rem;
-      color: var(--sub);
-      margin-top: 5px;
-      display: block;
-      font-weight: 400;
-      line-height: 1.6;
-    }
+    .ba-time { margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--line-light); font-size: 1rem !important; color: var(--text) !important; font-weight: 600; }
+    .ba-time i { color: var(--accent); margin-right: 5px; }
+    .ba-details { font-size: 0.85rem; color: var(--sub); margin-top: 5px; display: block; font-weight: 400; line-height: 1.6; }
 
     /* Testimonials Section */
     .testimonials-wrapper { background: var(--bg-light); padding: 100px 6%; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+    
     .testimonial {
-      background: var(--white);
-      padding: 35px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-      border: 1px solid var(--line-light);
-      position: relative;
+      background: var(--white); padding: 35px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid var(--line-light); position: relative; display: flex; flex-direction: column; 
     }
     .testimonial-content { font-size: 1.05rem; color: var(--text); line-height: 1.9; margin-bottom: 20px; position: relative; z-index: 2; }
-    .testimonial-author { font-size: 1rem; color: var(--accent3); text-align: right; font-weight: 500; letter-spacing: 0.05em; }
+    .testimonial-author { margin-top: auto; font-size: 0.95rem; color: var(--sub); text-align: right; font-weight: 500; border-top: 1px dashed var(--line-light); padding-top: 15px; }
+    .customer-meta { display: inline-block; letter-spacing: 0.02em; }
     .testimonial-content i { color: var(--accent2); margin-right: 8px; font-size: 1.2rem;} 
-    .testimonial-author i { margin-right: 8px; } 
 
     /* Profile Section */
+    .profile-section { padding: 100px 6%; }
     .profile {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-      align-items: center;
-      background: var(--white);
-      padding: 50px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-      border: 1px solid var(--line-light);
+      display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: var(--white); padding: 50px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid var(--line-light); max-width: 1100px; margin: 0 auto;
     }
-    .profile-image {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 0 auto;
-      background: transparent;
-    }
-    .profile-image img {
-      width: 100%;
-      height: auto; /* 強制的な正方形トリミングを解除 */
-      border-radius: 8px;
-      display: block;
-    }
+    .profile-image { width: 100%; border-radius: 8px; overflow: hidden; margin: 0 auto; background: transparent; }
+    .profile-image img { width: 100%; height: auto; border-radius: 8px; display: block; }
     .profile-content h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text); font-weight: 500; }
     .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .credential {
-      background: var(--white);
-      color: var(--accent3);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 1rem;
-      font-weight: 500;
-      border: 1px solid var(--accent2);
-    }
+    .credential { background: var(--white); color: var(--accent3); padding: 6px 14px; border-radius: 20px; font-size: 1rem; font-weight: 500; border: 1px solid var(--accent2); }
     .profile-content p { font-size: 1.05rem; color: var(--sub); line-height: 1.9; }
 
-    /* Contact Section */
-    .contact-highlight {
-      display: inline-block;
-      background: #fff;
-      color: #06C755;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    /* Footer */
+    /* ========================================
+       Footer 
+    ======================================== */
     .footer { background: var(--text); color: var(--white); text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer p { font-size: 1rem; color: rgba(255,255,255,0.8); margin: 5px 0; letter-spacing: 0.05em; }
 
@@ -681,49 +646,50 @@
     .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ========================================
-       スマホ画面への最適化設定
-    ======================================== */
+    /* スマホ画面への最適化設定 */
     @media (max-width: 768px) {
       .header { padding: 10px 4%; }
       .nav-logo img { height: 40px; }
+      .header-tel { display: none; } 
+      .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
-      .problem-item { font-size: 0.95rem; padding: 15px; }
-      
-      .greeting-wrap {
-        flex-direction: column;
-        padding: 0;
-      }
-      .greeting-image {
-        width: 100%;
-      }
-      .greeting-image img {
-        height: auto;
-      }
-      .greeting-content {
-        width: 100%;
-        padding: 30px 20px;
-      }
-
+      .greeting-wrap { flex-direction: column; }
+      .greeting-image, .greeting-content { width: 100%; }
+      .greeting-content { padding: 30px 20px; }
       .profile { grid-template-columns: 1fr; padding: 30px 20px; }
-      .profile-image {
-        max-width: 250px;
-        margin: 0 auto;
-      }
-      .profile-image img {
-        aspect-ratio: auto;
-        height: auto;
-      }
-      .services-table { overflow-x: auto; }
-      .services-table th, .services-table td { padding: 15px; }
-      .cancel-policy { padding: 20px; }
-      .area-card { padding: 30px 20px; }
-      .area-tag { padding: 10px 16px; font-size: 1rem; }
-      .flow-step { flex-direction: column; gap: 15px; padding: 20px; }
-      .flow-num { font-size: 2.2rem; margin-bottom: 5px; }
-      
+      .profile-image { max-width: 250px; }
       .before-after { grid-template-columns: 1fr; }
     }
+
+    /* ========================================
+       お問い合わせセクション デザイン修正
+    ======================================== */
+    .contact-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .line-cta-btn {
+      display: block; width: 100%; background: #06C755; text-decoration: none; border-radius: 16px; padding: 35px 20px; box-shadow: 0 8px 25px rgba(6, 199, 85, 0.2); transition: transform 0.3s; margin-bottom: 40px;
+    }
+    .line-cta-btn:hover { transform: translateY(-3px); }
+    .line-badge { display: inline-block; background: #fff; color: #06C755; padding: 6px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; }
+    .line-title { color: #fff; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+    .line-qr { max-width: 160px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .line-text { color: #fff; font-size: 1rem; line-height: 1.7; margin-bottom: 20px; font-weight: 500; }
+    .line-footer { color: rgba(255,255,255,0.85); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
+
+    .tel-cta-box {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 30px;
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .tel-label { font-size: 1rem; color: var(--sub); font-weight: 500; margin-bottom: 10px; }
+    .tel-number { color: var(--accent3); font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px; }
+    .tel-number:hover { opacity: 0.7; }
+    .tel-note { font-size: 0.85rem; color: var(--sub); opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -732,15 +698,33 @@
     <a href="#" class="nav-logo">
       <img src="images/logo.jpg" alt="totonou" />
       <div class="nav-logo-text">
-      <div>toto<strong style="color: var(--accent); font-weight: inherit;">n</strong>ou</div>
-      <span>山梨県の整理収納アドバイザー</span>
-    </div>
+        <div>toto<strong style="color: var(--accent); font-weight: inherit;">n</strong>ou</div>
+        <span>山梨県の整理収納アドバイザー</span>
+      </div>
     </a>
+
+    <a href="tel:09055338601" class="header-tel"><i class="fas fa-phone-alt"></i> 090-5533-8601</a>
+
+    <button class="menu-btn" id="menu-btn" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="#about">初めての方へ（ご挨拶）</a></li>
+        <li><a href="#services">サービス・料金</a></li>
+        <li><a href="#before-after">ビフォーアフター実例</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#contact">無料相談（LINE・電話）</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="hero">
     <div class="hero-content fade-in">
-      <span class="hero-eyebrow">整理収納サービス</span>
+      <span class="hero-eyebrow">片付け・整理収納サービス</span>
       <h1>お家が整うと<br>心も整う</h1>
       <p class="hero-subtitle">モノと心を整理して、<br class="br-sp">スッキリとした毎日を。</p>
       <a href="#contact" class="cta-button">無料相談はこちら</a>
@@ -757,11 +741,11 @@
         <div class="problem-item">引っ越し前後で荷物の整理に困っている</div>
         <div class="problem-item">忙しくて片付ける時間が取れない</div>
       </div>
-      <p class="solution-text">丁寧なヒアリングと100件以上の実績で、あなたに合った整理収納をサポートします。</p>
+      <p class="solution-text">丁寧なヒアリングと100件以上の実績で、あなたに合った片付け・整理収納をサポートします。</p>
     </div>
   </section>
 
-  <section class="section fade-in" style="padding-top: 0; padding-bottom: 0;">
+  <section id="about" class="section fade-in" style="padding-top: 0; padding-bottom: 0;">
     <div class="greeting-wrap">
       <div class="greeting-image">
         <img src="images/hero-background.jpg" alt="内藤ちえこ" />
@@ -769,9 +753,7 @@
       <div class="greeting-content">
         <h3>はじめまして。<br>整理収納アドバイザーの内藤 ちえこです。</h3>
         <p>
-          「どんな人が家に来るの？」<br>
-          「こんなに散らかっていて恥ずかしい…」<br>
-          そんな不安を抱えていませんか？
+          「どんな人が家に来るの？」 「こんなに散らかっていて恥ずかしい…」 そんな不安を抱えていませんか？
         </p>
         <p style="margin-top: 15px;">
           ご安心ください。まずは丁寧にお話を伺い、無理のないペースで一緒に解決策を見つけていきます。<br>
@@ -781,7 +763,7 @@
     </div>
   </section>
 
-  <section class="section fade-in" style="padding-top: 50px;">
+  <section id="reasons" class="section fade-in" style="padding-top: 50px;">
     <h2 class="sec-title">totonou が選ばれる<em>3</em>つの理由</h2>
     <div class="reasons-grid">
       <div class="reason-card">
@@ -838,7 +820,7 @@
     </section>
   </div>
 
-  <div class="services-wrapper">
+  <div id="services" class="services-wrapper">
     <section class="section fade-in" style="padding: 0;">
       <h2 class="sec-title">サービス内容・料金</h2>
       
@@ -873,7 +855,7 @@
           <div class="model-card">
             <h4>キッチン周りの整理</h4>
             <p class="model-price">約3時間 / 10,500円</p>
-            <p>全出しから要・不要の分類、調理動線を意識した食器や調理器具の収納配置まで行います。</p>
+            <p>全部出してから要・不要の分類、調理動線を意識した食器や調理器具の収納配置まで行います。</p>
           </div>
           <div class="model-card">
             <h4>クローゼットの整理</h4>
@@ -914,7 +896,7 @@
     </section>
   </div>
 
-  <section class="section fade-in">
+  <section id="before-after" class="section fade-in">
     <h2 class="sec-title">Before & After 実例</h2>
     <div class="before-after">
       
@@ -931,8 +913,8 @@
         </div>
         <div class="before-after-content">
           <h3>おもちゃ・絵本の収納</h3>
-          <p><span class="ba-problem">【お悩み】</span>おもちゃや絵本が溢れて、子どもが自分でお片付けできない状態でした。</p>
-          <p><span class="ba-solution">【解決】</span>木の棚を撤去し、全て埋め込み式の収納に収めました。子どもが手に取りやすい高さに合わせて定位置を決定し、一人でもお片付けしやすい環境が整いました。</p>
+          <p><span class="ba-problem">【お悩み】</span>「この空間をスッキリさせたい」というご希望。収納グッズを使いすぎていて、逆に場所を取っていました。</p>
+          <p><span class="ba-solution">【解決◎】</span>不要な物を間引き、場所を取っていた大きな棚を撤去。下段にお子様が自分で出し入れできる物、上段に親のサポートが必要な物を配置し、収納グッズは最小限に。「モノの位置」を決め、シンプルで機能的な環境に整えました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2.5時間</p>
         </div>
       </div>
@@ -950,8 +932,8 @@
         </div>
         <div class="before-after-content">
           <h3>ウォークインクローゼット・納戸</h3>
-          <p><span class="ba-problem">【お悩み】</span>床に荷物が直置きされていて、奥のモノが取り出せず、お掃除ロボットも使えませんでした。</p>
-          <p><span class="ba-solution">【解決】</span>空間を圧迫していた不用品を整理。床置きをなくして動線を確保することで、奥まで見渡せるようになり、お掃除も格段に楽になりました。</p>
+          <p><span class="ba-problem">【お悩み】</span>使いづらさを解消したいというご依頼。家具の配置が動線を遮っていました。</p>
+          <p><span class="ba-solution">【解決◎】</span>家具の配置を最適化し、モノを「あるべき場所」へ。いる・いらないを徹底的に選別し、その場所で使う物だけを厳選して配置することで、驚くほど使いやすく生まれ変わりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2時間</p>
         </div>
       </div>
@@ -969,8 +951,8 @@
         </div>
         <div class="before-after-content">
           <h3>物置部屋（衣類・日用品）</h3>
-          <p><span class="ba-problem">【お悩み】</span>とりあえず空いている部屋に荷物を押し込んでしまい、足の踏み場がない状態でした。</p>
-          <p><span class="ba-solution">【解決】</span>用途不明なモノや段ボールを徹底的に分別。ラックを活用して衣類を分かりやすく吊るすことで、本来の部屋の広さと機能を取り戻しました。</p>
+          <p><span class="ba-problem">【お悩み】</span>「人からもらった物が捨てられない」というお悩み。相手の気持ちを大切にするからこそ、手放せずにいました。</p>
+          <p><span class="ba-solution">【解決◎】</span>思い出と向き合う時間にじっくり寄り添いました。ご自身にとって本当に大切な「もらったモノ」はしっかりと残し、それ以外の物を整理。自分にとって何が大切かを確認できる部屋になりました。</p>
           <p class="ba-time">
             <i class="far fa-clock"></i> 所要時間：8時間（1部屋）
             <span class="ba-details">
@@ -993,8 +975,8 @@
         </div>
         <div class="before-after-content">
           <h3>寝室・プライベート空間</h3>
-          <p><span class="ba-problem">【お悩み】</span>脱いだ服やモノが散乱してしまい、ゆっくり休める空間になっていませんでした。</p>
-          <p><span class="ba-solution">【解決】</span>家具の配置を見直し、収納用品を活用して「モノの住所」を明確に。床がスッキリし、安心してくつろげる空間へと生まれ変わりました。</p>
+          <p><span class="ba-problem">【お悩み】</span>「片付け方が分からない」という不安。使いづらかった古いタンスが場所を占領していました。</p>
+          <p><span class="ba-solution">【解決◎】</span>湿気を含んで使いづらくなっていた木製タンスを撤去し、配置を見直し。使いやすいプラスチック棚を活かして「モノの住所」を明確にしました。床が見え、安心して眠れる空間になりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：4時間</p>
         </div>
       </div>
@@ -1010,43 +992,55 @@
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>キッチンの整理整頓をお願いしました。とても丁寧にヒアリングしてくださり、一緒に作業していただきました。自分だけでは考えつかないような収納方法を教えていただき、本当に助かりました。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>40代女性・ファミリー</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
+          </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>何に困っているのか丁寧に聴いていただきました。作業スピードに追いつかず、困っていると泣いてしまうこともありましたが、片づけの基本から学んだ気持ちです。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>30代女性・一人暮らし</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">甲斐市 ・ 40代 女性 ・ U様</span>
+          </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>物がたくさんあり、どこからどう片付けて良いかわかりませんでしたが、アドバイスをいただきながらサクサクと片付けできました。大きな棚が2つ分も一階から撤去でき、本当に助かりました。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>60代女性・シニア</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">甲府市 ・ 30代 女性 ・ M様</span>
+          </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>家全体を整えていくという計画で、まずはクローゼットの整理からしていただきました。すごく整って子供も感動していました! ありがとうございました。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>ファミリーのお客様</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
+          </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>時間配分も細かく考えてくださって、どっちを優先しますか? これならこのくらいでできそうなど、コミュニケーションをしっかり取ってくださって、時間内にまとめて完了して頂けました。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>ファミリーのお客様</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">甲州市 ・ 40代 女性 ・ N様</span>
+          </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
             <i class="fas fa-quote-left"></i>前回同様、使いやすくスッキリと片付けて頂きアドバイスももらえてとても助かりました。またお願いする際はよろしくお願いします。
           </div>
-          <div class="testimonial-author"><i class="fas fa-user-circle"></i>リピートのお客様</div>
+          <div class="testimonial-author">
+            <span class="customer-meta">山梨市 ・ 30代 男性 ・ I様（リピート）</span>
+          </div>
         </div>
       </div>
     </section>
   </div>
 
-  <section class="section fade-in">
+  <section id="profile" class="profile-section fade-in">
     <h2 class="sec-title">プロフィール</h2>
     <div class="profile">
       <div class="profile-image">
@@ -1059,7 +1053,7 @@
           <span class="credential">宅建士</span>
           <span class="credential">カラーセラピスト</span>
         </div>
-        <p><strong>経歴：</strong>子どもの頃から整理整頓が得意で、片づけをすると頭の中が整っていく感覚が好きでした。服飾専門学校卒業後、編集業・不動産業を経て、友人や職場から自然と依頼が集まるようになり、整理収納アドバイザーとして独立。これまでの経験を活かし、お客様一人ひとりに寄り添った提案を行っております。</p>
+        <p><strong>経歴：</strong>甲府市在住。子どもの頃から整理整頓が得意で、片づけをすると頭の中が整っていく感覚が好きでした。服飾専門学校卒業後、編集業・不動産業を経て、友人や職場から自然と依頼が集まるようになり、整理収納アドバイザーとして独立。これまでの経験を活かし、お客様一人ひとりに寄り添った提案を行っております。</p>
         <p style="margin-top: 15px;">
           「お家が整うと、心も整う」を心がけて、モノの整理だけでなく、皆様の毎日がより豊かになるお手伝いもさせていただきます。
         </p>
@@ -1067,101 +1061,33 @@
     </div>
   </section>
 
-<section class="contact fade-in" id="contact" style="background: var(--bg-light); padding: 100px 6%;">
-  <div class="section" style="padding: 0;">
-    <h2 class="sec-title" style="color: var(--text);">まずはお気軽にご相談ください</h2>
-    <style>
-      #contact .sec-title::after { background: var(--accent); }
+  <section class="contact fade-in" id="contact" style="background: var(--bg-light); padding: 100px 6%;">
+    <div class="contact-wrap">
+      <h2 class="sec-title">まずはお気軽にご相談ください</h2>
       
-      .line-cta-btn {
-        display: block;
-        max-width: 550px;
-        width: 100%;
-        margin: 0 auto;
-        background: #06C755;
-        text-decoration: none;
-        border-radius: 16px;
-        padding: 40px 30px;
-        box-shadow: 0 8px 25px rgba(6, 199, 85, 0.3);
-        text-align: center;
-        transition: transform 0.3s;
-        box-sizing: border-box;
-      }
-      .line-cta-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(6, 199, 85, 0.4);
-      }
-      .line-badge {
-        display: inline-block;
-        background: #ffffff;
-        color: #06C755;
-        padding: 8px 24px;
-        border-radius: 50px;
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin-bottom: 25px;
-      }
-      .line-title-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        margin-bottom: 25px;
-      }
-      .line-title-wrap i {
-        font-size: 3rem;
-        color: #ffffff;
-      }
-      .line-title-wrap h3 {
-        color: #ffffff;
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin: 0;
-        line-height: 1;
-      }
-      .line-desc {
-        color: #ffffff;
-        font-size: 1.1rem;
-        line-height: 1.9;
-        margin-bottom: 30px;
-        font-weight: 500;
-      }
-      .line-footer {
-        color: rgba(255, 255, 255, 0.95);
-        font-size: 1rem;
-        font-weight: 500;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        padding-top: 20px;
-        line-height: 1.6;
-      }
-    </style>
-
-    <div class="contact-methods">
       <a href="https://lin.ee/oUBYvWa" class="line-cta-btn" target="_blank" rel="noopener noreferrer">
-        <div class="line-badge">写真一枚からでもOK！<br>無料でお見積り</div>
-        
-        <div class="line-title-wrap">
+        <div class="line-badge">写真一枚からでもOK！無料でお見積り</div>
+        <div class="line-title">
           <i class="fab fa-line"></i>
-          <h3>LINEで相談する</h3>
+          <span>LINEで相談する</span>
         </div>
-
-        <div style="margin: 25px 0; text-align: center;">
-          <img src="images/S__32301060_0.jpg" alt="LINE QRコード" style="max-width: 180px; width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: inline-block;">
-        </div>
-        
-        <p class="line-desc">
-          「こんな状態でも大丈夫？」<br>「いくらかかる？」<br>
-          現状の写真を送っていただければ、簡単なアドバイスと目安のお見積りを無料でお出しします。
+        <img src="images/S__32301060_0.jpg" alt="LINE QRコード" class="line-qr">
+        <p class="line-text">
+          「こんな状態でも大丈夫？」「いくらかかる？」<br>
+          現状の写真を送っていただければ、無料でお見積りいたします。
         </p>
-        
-        <div class="line-footer">
-          24時間以内返信保証<br>
-          タップしてお友達追加してください
-        </div>
+        <div class="line-footer">24時間以内返信保証 ・ タップしてお友達追加</div>
       </a>
+
+      <div class="tel-cta-box">
+        <p class="tel-label">お急ぎの方、お電話でのご相談はこちら</p>
+        <a href="tel:09055338601" class="tel-number">
+          <i class="fas fa-phone-alt"></i> 090-5533-8601
+        </a>
+        <p class="tel-note">※作業中など出られない場合は折り返しお電話いたします</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <footer class="footer">
     <p>&copy; 2026 totonou（内藤ちえこ）All rights reserved.</p>
@@ -1169,13 +1095,36 @@
   </footer>
 
   <script>
+    // メニューの開閉処理
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
     // スムーススクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href').startsWith('tel:')) return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const headerOffset = 70;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
       });
     });
@@ -1184,12 +1133,9 @@
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); }
       });
     }, observerOptions);
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     // ヘッダーのスクロールエフェクト
@@ -1202,20 +1148,6 @@
         header.style.background = 'rgba(247, 251, 253, 0.95)';
         header.style.boxShadow = '0 1px 10px rgba(0,0,0,0.02)';
       }	
-    });
-
-    // ヒーローセクションのパララックス効果
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const heroContent = document.querySelector('.hero-content');
-      if (heroContent) heroContent.style.transform = `translateY(${scrolled * 0.25}px)`; 
-    });
-
-    // ページロード時のアニメーション
-    window.addEventListener('load', () => {
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.6s ease';
-      setTimeout(() => document.body.style.opacity = '1', 100);
     });
   </script>
 </body>
