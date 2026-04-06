@@ -649,8 +649,18 @@
     /* スマホ画面への最適化設定 */
     @media (max-width: 768px) {
       .header { padding: 10px 4%; }
-      .nav-logo img { height: 40px; }
-      .header-tel { display: none; } 
+      .nav-logo img { height: 40px; margin-right: 8px; }
+      .nav-logo-text div { font-size: 1.2rem; }
+      .nav-logo span { font-size: 0.65rem; }
+      
+      /* 修正：スマホでも電話番号を表示し、サイズを調整 */
+      .header-tel { 
+        margin-right: 15px; 
+        font-size: 0.85rem; 
+        gap: 4px;
+      }
+      .header-tel i { font-size: 0.8rem; }
+      
       .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
       .greeting-wrap { flex-direction: column; }
@@ -769,7 +779,7 @@
       <div class="reason-card">
         <div class="reason-icon"><i class="fas fa-hand-holding-heart"></i></div>
         <h3>丁寧なヒアリング</h3>
-        <p>じっくりとお話を聴き、ご希望を伺います。あなたが本当に大切にしていることを一緒に明確にしていきます。</p>
+        <p>じっくりとお話を聴き、ご希望を伺います。あなたが本当に大切にしていることを一緒に明確にしてきます。</p>
       </div>
       <div class="reason-card">
         <div class="reason-icon"><i class="fas fa-history"></i></div>
