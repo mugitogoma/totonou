@@ -212,6 +212,7 @@
       color: var(--text);
       margin-bottom: 15px;
       letter-spacing: 0.05em;
+      line-height: 1.3; /* トップのタイトルの行間を詰める */
     }
     .hero-subtitle {
       font-family: var(--sans);
@@ -602,7 +603,7 @@
     .ba-label.after { background: rgba(69, 99, 117, 0.8); }
 
     .before-after-content { padding: 25px; flex-grow: 1; }
-    .before-after-content h3 { font-size: 1.15rem; margin-bottom: 15px; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--line-light); padding-bottom: 10px;}
+    .before-after-content h3 { font-size: 1.15rem; margin-bottom: 15px; font-weight: 600; color: var(--accent3); border-bottom: 1px solid var(--line-light); padding-bottom: 10px;}
     .before-after-content p { font-size: 0.95rem; color: var(--sub); line-height: 1.8; margin-bottom: 10px;}
     
     .ba-problem, .ba-solution { color: #333333; font-weight: 500; display: block; margin-bottom: 5px; }
@@ -620,7 +621,10 @@
       background: var(--white); padding: 35px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid var(--line-light); position: relative; display: flex; flex-direction: column; 
     }
     .testimonial-content { font-size: 1.05rem; color: var(--text); line-height: 1.9; margin-bottom: 20px; position: relative; z-index: 2; }
-    .testimonial-author { margin-top: auto; font-size: 0.95rem; color: var(--sub); text-align: right; font-weight: 500; border-top: 1px dashed var(--line-light); padding-top: 15px; }
+    
+    /* 修正箇所：お客様の声の名前・アイコン色 */
+    .testimonial-author { margin-top: auto; font-size: 0.95rem; color: var(--accent3); text-align: right; font-weight: 500; border-top: 1px dashed var(--line-light); padding-top: 15px; }
+    .testimonial-author i { margin-right: 8px; }
     .customer-meta { display: inline-block; letter-spacing: 0.02em; }
     .testimonial-content i { color: var(--accent2); margin-right: 8px; font-size: 1.2rem;} 
 
@@ -653,7 +657,6 @@
       .nav-logo-text div { font-size: 1.2rem; }
       .nav-logo span { font-size: 0.65rem; }
       
-      /* 修正：スマホでも電話番号を表示し、サイズを調整 */
       .header-tel { 
         margin-right: 15px; 
         font-size: 0.85rem; 
@@ -724,8 +727,10 @@
     <nav class="nav-menu" id="nav-menu">
       <ul>
         <li><a href="#about">初めての方へ（ご挨拶）</a></li>
-        <li><a href="#services">サービス・料金</a></li>
+        <li><a href="#flow">ご利用の流れ</a></li>
+        <li><a href="#services">サービス内容・料金</a></li>
         <li><a href="#before-after">ビフォーアフター実例</a></li>
+        <li><a href="#testimonials">お客様の声</a></li>
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#contact">無料相談（LINE・電話）</a></li>
       </ul>
@@ -794,7 +799,7 @@
     </div>
   </section>
 
-  <div class="flow-wrapper">
+  <div id="flow" class="flow-wrapper">
     <section class="section fade-in" style="padding: 0;">
       <h2 class="sec-title">ご利用の流れ</h2>
       <div class="flow-container">
@@ -994,7 +999,7 @@
     </div>
   </section>
 
-  <div class="testimonials-wrapper">
+  <div id="testimonials" class="testimonials-wrapper">
     <section class="section fade-in" style="padding: 0;">
       <h2 class="sec-title">お客様の声</h2>
       <div class="testimonials-grid">
@@ -1003,7 +1008,7 @@
             <i class="fas fa-quote-left"></i>キッチンの整理整頓をお願いしました。とても丁寧にヒアリングしてくださり、一緒に作業していただきました。自分だけでは考えつかないような収納方法を教えていただき、本当に助かりました。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
           </div>
         </div>
         <div class="testimonial">
@@ -1011,7 +1016,7 @@
             <i class="fas fa-quote-left"></i>何に困っているのか丁寧に聴いていただきました。作業スピードに追いつかず、困っていると泣いてしまうこともありましたが、片づけの基本から学んだ気持ちです。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">甲斐市 ・ 40代 女性 ・ U様</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">甲斐市 ・ 40代 女性 ・ U様</span>
           </div>
         </div>
         <div class="testimonial">
@@ -1019,7 +1024,7 @@
             <i class="fas fa-quote-left"></i>物がたくさんあり、どこからどう片付けて良いかわかりませんでしたが、アドバイスをいただきながらサクサクと片付けできました。大きな棚が2つ分も一階から撤去でき、本当に助かりました。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">甲府市 ・ 30代 女性 ・ M様</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 30代 女性 ・ M様</span>
           </div>
         </div>
         <div class="testimonial">
@@ -1027,7 +1032,7 @@
             <i class="fas fa-quote-left"></i>家全体を整えていくという計画で、まずはクローゼットの整理からしていただきました。すごく整って子供も感動していました! ありがとうございました。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
           </div>
         </div>
         <div class="testimonial">
@@ -1035,7 +1040,7 @@
             <i class="fas fa-quote-left"></i>時間配分も細かく考えてくださって、どっちを優先しますか? これならこのくらいでできそうなど、コミュニケーションをしっかり取ってくださって、時間内にまとめて完了して頂けました。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">甲州市 ・ 40代 女性 ・ N様</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">甲州市 ・ 40代 女性 ・ N様</span>
           </div>
         </div>
         <div class="testimonial">
@@ -1043,7 +1048,7 @@
             <i class="fas fa-quote-left"></i>前回同様、使いやすくスッキリと片付けて頂きアドバイスももらえてとても助かりました。またお願いする際はよろしくお願いします。
           </div>
           <div class="testimonial-author">
-            <span class="customer-meta">山梨市 ・ 30代 男性 ・ I様（リピート）</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta">山梨市 ・ 30代 男性 ・ I様（リピート）</span>
           </div>
         </div>
       </div>
