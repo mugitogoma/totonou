@@ -7,7 +7,7 @@
   <meta name="description" content="山梨県（甲府市・甲斐市・笛吹市ほか）の整理収納アドバイザー・内藤ちえこのサービスサイト。片付けで外側も内側も整えるお手伝いをします。1時間3,500円〜、交通費込。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ========================================
       🎨 カラー設定
@@ -28,18 +28,8 @@
       --rounded:   'M PLUS Rounded 1c', sans-serif;
     }
 
-    /* iPhoneのアイコン「□に✖」化けを強制ブロック */
-    i[class^="fa-"], i[class*=" fa-"] {
-      display: inline-block;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-    }
-    .fas { font-weight: 900 !important; }
-    .fab, .far { font-weight: 400 !important; }
-
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     
-    /* iPhoneの横スクロール(余白)バグを強制ブロック */
     html, body { 
       max-width: 100vw;
       overflow-x: hidden; 
@@ -58,8 +48,8 @@
       font-size: clamp(14px, 2.5vw, 15px); 
       font-weight: 400; 
       line-height: 1.8;
-      word-break: auto; /* 日本語の自然な改行に戻す */
-      overflow-wrap: break-word; /* 単語の途中での不自然な改行を防止 */
+      word-break: auto; 
+      overflow-wrap: break-word; 
     }
 
     h1, h2, h3 {
@@ -142,6 +132,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-shrink: 0; /* 絶対に縮まない */
     }
     .header-tel i { font-size: 0.9rem; }
 
@@ -175,7 +166,7 @@
       top: 0;
       right: 0;
       transform: translateX(100%);
-      visibility: hidden; /* ← iOSバグ対策：画面外にある時は完全に存在を消して横揺れを防ぐ */
+      visibility: hidden; 
       width: 250px; 
       height: 100vh;
       background: rgba(247, 251, 253, 0.98);
@@ -461,6 +452,7 @@
       color: var(--accent3);
       line-height: 1;
       font-weight: 600;
+      flex-shrink: 0; /* 数字が潰れるのを絶対に防ぐ */
     }
     .flow-text h3 {
       font-size: 1.2rem;
@@ -689,11 +681,9 @@
       .nav-logo span { font-size: 0.55rem; letter-spacing: 0; white-space: nowrap; }
       
       .header-tel { 
-        margin-right: 10px; 
+        margin-right: 5px; 
         font-size: 0.75rem; 
         gap: 3px;
-        white-space: nowrap; 
-        flex-shrink: 0; /* 追加: 電話番号が絶対に縮まないよう強制保護 */
       }
       .header-tel i { font-size: 0.75rem; }
       .menu-btn { width: 24px; }
@@ -701,8 +691,10 @@
       .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
 
-      .problems-wrap { padding: 30px 15px; margin: 20px 0; }
+      /* 画像1の余白修正：左右の余白を多めにとり、中の窮屈さを解消 */
+      .problems-wrap { padding: 30px 24px; margin: 20px auto; }
       .problems-list { grid-template-columns: 1fr; }
+      .problem-item { padding: 16px 15px; }
 
       .greeting-wrap { flex-direction: column; }
       .greeting-image, .greeting-content { width: 100%; }
@@ -712,7 +704,9 @@
       .profile-image { max-width: 250px; }
       .before-after { grid-template-columns: 1fr; }
 
-      .flow-step { padding: 20px 15px; gap: 15px; } 
+      /* 画像2の余白修正：ステップの箱の余白を調整 */
+      .flow-step { padding: 25px 20px; gap: 15px; } 
+
       .area-card { padding: 30px 15px; margin: 20px 0 0; } 
       .services-table th, .services-table td { padding: 15px 10px; font-size: 0.9rem; }
       .cancel-policy { padding: 25px 15px; }
@@ -762,7 +756,10 @@
       </div>
     </a>
 
-    <a href="tel:09055338601" class="header-tel"><i class="fas fa-phone-alt"></i> 090-5533-8601</a>
+    <a href="tel:09055338601" class="header-tel">
+      <i class="fas fa-phone-alt"></i> 
+      <span style="white-space: nowrap; word-break: keep-all;">090-5533-8601</span>
+    </a>
 
     <button class="menu-btn" id="menu-btn" aria-label="メニューを開く">
       <span></span>
