@@ -673,13 +673,24 @@
       
       .header-tel { 
         margin-right: 15px; 
-        font-size: 0.85rem; 
+        font-size: 0.8rem; /* フォントサイズを微調整 */
         gap: 4px;
+        white-space: nowrap; /* 追加：電話番号の改行を防ぐ */
       }
       .header-tel i { font-size: 0.8rem; }
       
       .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
+
+      /* 追加：問題セクションの余白バランス調整 */
+      .problems-wrap {
+        padding: 40px 20px; /* 左右の余白を適切に設定 */
+        margin: 20px auto;
+      }
+      .problems-list {
+        grid-template-columns: 1fr; /* スマホ時は確実に1列にする */
+      }
+
       .greeting-wrap { flex-direction: column; }
       .greeting-image, .greeting-content { width: 100%; }
       .greeting-content { padding: 30px 20px; }
@@ -828,7 +839,7 @@
           <div class="flow-num">02</div>
           <div class="flow-text">
             <h3>事前のヒアリング・お見積り（無料）</h3>
-            <p>LINEのやり取り、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします. その際、おおよその作業時間とお見積り額をご提示いたします。</p>
+            <p>LINEのやり取り、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします. その際、おおよচৈতন্যেরおおよその作業時間とお見積り額をご提示いたします。</p>
           </div>
         </div>
         <div class="flow-step">
@@ -994,7 +1005,7 @@
           <p class="ba-time">
             <i class="far fa-clock"></i> 所要時間：8時間（1部屋）
             <span class="ba-details">
-              内訳：要不要の選択(2時間) / 茶色の棚の中の整理（思い出の品・書類・アルバム等）(4時間) / 家具移動・撤去(1時間) / 掃除(1時間)
+              内訳：要不要の選択(2時間) / 茶色の棚の中の整理（思い出の品・書類・アルバム等）(4時間) / 家具移動・撤去(1時間) /掃除(1時間)
             </span>
           </p>
         </div>
