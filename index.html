@@ -7,27 +7,10 @@
   <meta name="description" content="山梨県（甲府市・甲斐市・笛吹市ほか）の整理収納アドバイザー・内藤ちえこのサービスサイト。片付けで外側も内側も整えるお手伝いをします。1時間3,500円〜、交通費込。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* ========================================
-       🚨 iPhone(iOS Safari)のアイコン文字化け強制修正
-    ======================================== */
-    i.fas {
-      font-family: "Font Awesome 6 Free" !important;
-      font-weight: 900 !important;
-      font-style: normal !important;
-    }
-    i.fab {
-      font-family: "Font Awesome 6 Brands" !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-    }
-    i.far {
-      font-family: "Font Awesome 6 Free" !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-    }
+  
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
+  <style>
     /* ========================================
       🎨 カラー設定
     ======================================== */
@@ -151,9 +134,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      flex-shrink: 0; /* 絶対に縮まない */
+      flex-shrink: 0; 
     }
-    .header-tel i { font-size: 0.9rem; }
+    
+    /* SVG化に伴うアイコンのサイズ調整 */
+    .header-tel svg { width: 1em; height: 1em; }
 
     /* --- ハンバーガーボタン --- */
     .menu-btn {
@@ -439,7 +424,10 @@
       background: linear-gradient(90deg, var(--accent2), var(--accent));
     }
     .reason-card:hover { transform: translateY(-5px); }
-    .reason-icon { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); }
+    
+    /* SVG化に伴うアイコンのサイズ調整 */
+    .reason-icon svg { width: 1em; height: 1em; font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); }
+    
     .reason-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 15px; font-weight: 500; letter-spacing: 0.05em; }
     .reason-card p { font-size: 0.95rem; color: var(--sub); line-height: 1.8; }
 
@@ -471,7 +459,7 @@
       color: var(--accent3);
       line-height: 1;
       font-weight: 600;
-      flex-shrink: 0; /* 数字が潰れるのを絶対に防ぐ */
+      flex-shrink: 0; 
     }
     .flow-text h3 {
       font-size: 1.2rem;
@@ -572,10 +560,7 @@
       display: flex;
       align-items: center;
     }
-    .cancel-policy h3 i {
-      color: var(--accent3);
-      margin-right: 8px;
-    }
+    .cancel-policy h3 svg { color: var(--accent3); margin-right: 8px; width: 1em; height: 1em; }
     .cancel-policy ul {
       list-style: none;
       padding-left: 0;
@@ -622,7 +607,7 @@
     .area-tag {
       background: #f4fafc; color: var(--sub); padding: 10px 24px; border-radius: 50px; font-size: 1.05rem; font-weight: 500; border: 1px solid var(--line); transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
     }
-    .area-tag i { color: var(--accent3); font-size: 1rem; }
+    .area-tag svg { color: var(--accent3); width: 1em; height: 1em; }
     .area-tag:hover {
       background: var(--white); border-color: var(--accent); color: var(--accent3); transform: translateY(-2px);
     }
@@ -653,7 +638,7 @@
     .ba-solution { margin-top: 10px; }
 
     .ba-time { margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--line-light); font-size: 1rem !important; color: var(--text) !important; font-weight: 600; }
-    .ba-time i { color: var(--accent); margin-right: 5px; }
+    .ba-time svg { color: var(--accent); margin-right: 5px; width: 1em; height: 1em; }
     .ba-details { font-size: 0.85rem; color: var(--sub); margin-top: 5px; display: block; font-weight: 400; line-height: 1.6; }
 
     /* Testimonials Section */
@@ -666,9 +651,9 @@
     .testimonial-content { font-size: 1rem; color: var(--text); line-height: 1.9; margin-bottom: 20px; position: relative; z-index: 2; }
     
     .testimonial-author { margin-top: auto; font-size: 0.95rem; color: var(--accent3); text-align: right; font-weight: 500; border-top: 1px dashed var(--line-light); padding-top: 15px; }
-    .testimonial-author i { margin-right: 8px; }
+    .testimonial-author svg { margin-right: 8px; width: 1em; height: 1em; }
     .customer-meta { display: inline-block; letter-spacing: 0.02em; }
-    .testimonial-content i { color: var(--accent2); margin-right: 8px; font-size: 1.2rem;} 
+    .testimonial-content svg { color: var(--accent2); margin-right: 8px; width: 1.2em; height: 1.2em;} 
 
     /* Profile Section */
     .profile-section { padding: 100px 6%; }
@@ -704,13 +689,12 @@
         font-size: 0.75rem; 
         gap: 3px;
       }
-      .header-tel i { font-size: 0.75rem; }
+      .header-tel svg { font-size: 0.75rem; }
       .menu-btn { width: 24px; }
       
       .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
 
-      /* 画像1の余白修正：左右の余白を多めにとり、中の窮屈さを解消 */
       .problems-wrap { padding: 30px 24px; margin: 20px auto; }
       .problems-list { grid-template-columns: 1fr; }
       .problem-item { padding: 16px 15px; }
@@ -723,7 +707,6 @@
       .profile-image { max-width: 250px; }
       .before-after { grid-template-columns: 1fr; }
 
-      /* 画像2の余白修正：ステップの箱の余白を調整 */
       .flow-step { padding: 25px 20px; gap: 15px; } 
 
       .area-card { padding: 30px 15px; margin: 20px 0 0; } 
@@ -747,6 +730,7 @@
     .line-cta-btn:hover { transform: translateY(-3px); }
     .line-badge { display: inline-block; background: #fff; color: #06C755; padding: 6px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; }
     .line-title { color: #fff; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+    .line-title svg { width: 1em; height: 1em; }
     .line-qr { max-width: 160px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
     .line-text { color: #fff; font-size: 1rem; line-height: 1.7; margin-bottom: 20px; font-weight: 500; }
     .line-footer { color: rgba(255,255,255,0.85); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
@@ -760,6 +744,7 @@
     }
     .tel-label { font-size: 1rem; color: var(--sub); font-weight: 500; margin-bottom: 10px; }
     .tel-number { color: var(--accent3); font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px; }
+    .tel-number svg { width: 1em; height: 1em; }
     .tel-number:hover { opacity: 0.7; }
     .tel-note { font-size: 0.85rem; color: var(--sub); opacity: 0.8; }
   </style>
