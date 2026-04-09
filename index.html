@@ -40,7 +40,6 @@
       font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      /* 基本サイズを少し小さめの15px基準に変更し、PCでの文字密度を調整 */
       font-size: clamp(14px, 2.5vw, 15px); 
       font-weight: 400; 
       line-height: 1.8;
@@ -65,13 +64,9 @@
       white-space: nowrap; 
     }
 
-    /* PCなど広い画面のときは、改行を自然に許可しつつ、フォントを微調整 */
     @media (min-width: 769px) {
       .ib {
         white-space: normal;
-      }
-      body {
-        font-size: 15px; /* PCでは15pxで固定して可読性を安定させる */
       }
     }
 
@@ -91,48 +86,50 @@
     }
     .nav-logo {
       font-family: var(--rounded);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
       color: var(--text);
       text-decoration: none;
       display: flex;
       align-items: center;
+      flex-shrink: 0;
     }
     .nav-logo img {
-      height: 50px;
+      height: 45px;
       width: auto;
       vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 8px;
     }
     .nav-logo-text {
       display: flex;
       flex-direction: column;
     }
+    .nav-logo-text div {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1;
+    }
     .nav-logo span {
-      font-size: 0.8rem;
+      font-size: clamp(0.6rem, 2vw, 0.75rem);
       font-family: var(--sans);
       font-weight: 400;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       color: var(--sub);
       display: block;
-      line-height: 1.2;
       margin-top: 2px;
     }
 
     /* ヘッダー電話番号 */
     .header-tel {
       margin-left: auto;
-      margin-right: 30px;
+      margin-right: clamp(10px, 3vw, 30px);
       text-decoration: none;
       color: var(--accent3);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: clamp(0.85rem, 3vw, 1.1rem);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
-    .header-tel i { font-size: 1rem; }
+    .header-tel i { font-size: 0.9rem; }
 
     /* --- ハンバーガーボタン --- */
     .menu-btn {
@@ -263,7 +260,7 @@
     /* Common Section */
     .section {
       padding: 100px 6%; 
-      max-width: 1200px; /* PCでの1行文字数を増やすため全体幅を拡張 */
+      max-width: 1200px; 
       margin: 0 auto;
     }
     .sec-title {
@@ -394,7 +391,7 @@
     /* Reasons Section */
     .reasons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 幅を少し広げて1行文字数を確保 */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
       gap: 30px;
     }
     .reason-card {
@@ -488,7 +485,7 @@
 
     /* Model Cases */
     .model-cases {
-      max-width: 1100px; /* カードが横に広がるよう幅を拡張 */
+      max-width: 1100px; 
       margin: 0 auto 50px;
     }
     .model-cases-title {
@@ -500,7 +497,7 @@
     }
     .model-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* カードの最低幅を広げて1行文字数を増加 */
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
       gap: 20px;
     }
     .model-card {
@@ -692,7 +689,7 @@
     }
 
     /* ========================================
-       お問い合わせセクション デザイン修正
+       お問い合わせセクション 
     ======================================== */
     .contact-wrap {
       max-width: 600px;
@@ -758,7 +755,7 @@
     <div class="hero-content fade-in">
       <span class="hero-eyebrow">片付け・整理収納サービス</span>
       <h1>お家が整うと<br>心も整う</h1>
-      <p class="hero-subtitle">モノと心を整理して、<br class="br-sp">スッキリとした毎日を。</p>
+      <p class="hero-subtitle"><span class="ib">モノと心を整理して、</span><br class="br-sp"><span class="ib">スッキリとした毎日を。</span></p>
       <a href="#contact" class="cta-button">無料相談はこちら</a>
     </div>
   </section>
@@ -831,7 +828,7 @@
           <div class="flow-num">02</div>
           <div class="flow-text">
             <h3>事前のヒアリング・お見積り（無料）</h3>
-            <p>LINEのやり取り、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします。その際、おおよその作業時間とお見積り額をご提示いたします。</p>
+            <p>LINEのやり取り、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします. その際、おおよその作業時間とお見積り額をご提示いたします。</p>
           </div>
         </div>
         <div class="flow-step">
@@ -1074,7 +1071,7 @@
             <i class="fas fa-quote-left"></i>前回同様、使いやすくスッキリと片付けて頂きアドバイスももらえてとても助かりました. またお願いする際はよろしくお願いします。
           </div>
           <div class="testimonial-author">
-            <i class="fas fa-user-circle"></i><span class="customer-meta">山梨市 ・ 30代 男性 ・ I様（リピート）</span>
+            <i class="fas fa-user-circle"></i><span class="customer-meta"><span class="ib">山梨市 ・ 30代 男性 ・ </span><span class="ib">I様（リピート）</span></span>
           </div>
         </div>
       </div>
@@ -1107,21 +1104,21 @@
       <h2 class="sec-title">まずはお気軽にご相談ください</h2>
       
       <a href="https://lin.ee/oUBYvWa" class="line-cta-btn" target="_blank" rel="noopener noreferrer">
-        <div class="line-badge">写真一枚からでもOK！無料でお見積り</div>
+        <div class="line-badge"><span class="ib">写真一枚からでもOK！</span><span class="ib">無料でお見積り</span></div>
         <div class="line-title">
           <i class="fab fa-line"></i>
           <span>LINEで相談する</span>
         </div>
         <img src="images/S__32301060_0.jpg" alt="LINE QRコード" class="line-qr">
         <p class="line-text">
-          「こんな状態でも大丈夫？」「いくらかかる？」<br>
-          現状の写真を送っていただければ、無料でお見積りいたします。
+          <span class="ib">「こんな状態でも大丈夫？」</span><span class="ib">「いくらかかる？」</span><br>
+          <span class="ib">現状の写真を送っていただければ、</span><span class="ib">無料でお見積りいたします。</span>
         </p>
-        <div class="line-footer">24時間以内返信保証 ・ タップしてお友達追加</div>
+        <div class="line-footer"><span class="ib">24時間以内返信保証 ・ </span><span class="ib">タップしてお友達追加</span></div>
       </a>
 
       <div class="tel-cta-box">
-        <p class="tel-label">お急ぎの方、お電話でのご相談はこちら</p>
+        <p class="tel-label"><span class="ib">お急ぎの方、</span><span class="ib">お電話でのご相談はこちら</span></p>
         <a href="tel:09055338601" class="tel-number">
           <i class="fas fa-phone-alt"></i> 090-5533-8601
         </a>
@@ -1131,7 +1128,7 @@
   </section>
 
   <footer class="footer">
-    <p>&copy; 2026 totonou（内藤ちえこ）All rights reserved.</p>
+    <p>&copy; 2026 totonou（内藤ちえこ）<span class="ib">All rights reserved.</span></p>
     <p>山梨県の整理収納アドバイザー</p>
   </footer>
 
