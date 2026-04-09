@@ -270,7 +270,7 @@
 
     /* Common Section */
     .section {
-      padding: 100px 6%; 
+      padding: 50px 6%; /* 全体の縦余白を半分(100px→50px)に短縮 */
       max-width: 1200px; 
       margin: 0 auto;
     }
@@ -278,7 +278,7 @@
       font-family: var(--sans);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       text-align: center;
-      margin-bottom: 60px; 
+      margin-bottom: 30px; /* 見出し下の余白を半分に短縮 */
       color: var(--text);
       font-weight: 500;
       letter-spacing: 0.05em;
@@ -298,7 +298,7 @@
       border-radius: 8px;
       padding: 60px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
-      margin: 40px auto;
+      margin: 20px auto; /* 上下余白を半分に短縮 */
       max-width: 900px;
       border: 1px solid var(--line-light);
     }
@@ -361,7 +361,7 @@
       background: var(--bg-light);
       border-radius: 12px;
       max-width: 1000px;
-      margin: 0 auto 60px;
+      margin: 0 auto 30px; /* 下余白を半分に短縮 */
       border: 1px solid var(--line);
       display: flex;
       overflow: hidden;
@@ -433,7 +433,7 @@
     /* Flow Section */
     .flow-wrapper {
       background: var(--bg-light);
-      padding: 100px 6%;
+      padding: 50px 6%; /* 上下余白を半分に短縮 */
     }
     .flow-container {
       display: flex;
@@ -475,7 +475,7 @@
     /* Services Section */
     .services-wrapper {
       background: var(--bg);
-      padding: 100px 6%;
+      padding: 50px 6%; /* 上下余白を半分に短縮 */
     }
     .services-table {
       background: var(--white);
@@ -483,7 +483,7 @@
       overflow: hidden;
       box-shadow: 0 5px 20px rgba(0,0,0,0.04);
       border: 1px solid var(--line-light);
-      margin: 0 auto 50px;
+      margin: 0 auto 25px; /* 下余白を半分に短縮 */
       max-width: 900px;
     }
     .services-table table { width: 100%; border-collapse: collapse; }
@@ -501,7 +501,7 @@
     /* Model Cases */
     .model-cases {
       max-width: 1100px; 
-      margin: 0 auto 50px;
+      margin: 0 auto 25px; /* 下余白を半分に短縮 */
     }
     .model-cases-title {
       font-size: 1.3rem;
@@ -548,7 +548,7 @@
       padding: 30px;
       border-radius: 8px;
       max-width: 900px;
-      margin: 0 auto 50px;
+      margin: 0 auto 25px; /* 下余白を半分に短縮 */
       box-shadow: 0 2px 10px rgba(0,0,0,0.02);
     }
     .cancel-policy h3 {
@@ -585,7 +585,7 @@
       border: 1px solid var(--line-light);
       text-align: center;
       max-width: 900px;
-      margin: 40px auto 0;
+      margin: 20px auto 0; /* 上余白を半分に短縮 */
     }
     .area-sub-title {
       font-size: 1.2rem;
@@ -626,8 +626,9 @@
     .ba-img-wrap { position: relative; flex: 1; aspect-ratio: 3 / 4; }
     .ba-img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .ba-label { position: absolute; top: 10px; left: 10px; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; color: #fff; border-radius: 4px; letter-spacing: 0.05em; font-family: var(--sans); }
-    .ba-label.before { background: rgba(69, 99, 117, 0.8); }
-    .ba-label.after { background: rgba(69, 99, 117, 0.8); }
+    /* Before / After ラベルの透かし色を指定色に変更 */
+    .ba-label.before { background: rgba(41, 128, 168, 0.7); }
+    .ba-label.after { background: rgba(41, 128, 168, 0.85); }
 
     .before-after-content { padding: 25px; flex-grow: 1; }
     .before-after-content h3 { font-size: 1.1rem; margin-bottom: 15px; font-weight: 600; color: var(--accent3); border-bottom: 1px solid var(--line-light); padding-bottom: 10px;}
@@ -641,7 +642,7 @@
     .ba-details { font-size: 0.85rem; color: var(--sub); margin-top: 5px; display: block; font-weight: 400; line-height: 1.6; }
 
     /* Testimonials Section */
-    .testimonials-wrapper { background: var(--bg-light); padding: 100px 6%; }
+    .testimonials-wrapper { background: var(--bg-light); padding: 50px 6%; /* 上下余白を半分に短縮 */ }
     .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
     
     .testimonial {
@@ -655,7 +656,7 @@
     .testimonial-content svg { color: var(--accent2); margin-right: 8px; width: 1.2em; height: 1.2em;} 
 
     /* Profile Section */
-    .profile-section { padding: 100px 6%; }
+    .profile-section { padding: 50px 6%; /* 上下余白を半分に短縮 */ }
     .profile {
       display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: var(--white); padding: 50px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid var(--line-light); max-width: 1100px; margin: 0 auto;
     }
@@ -678,7 +679,6 @@
 
     /* スマホ画面への最適化設定 */
     @media (max-width: 768px) {
-      /* 文字のバランス調整を解除して右側の大きな余白を解消 */
       h1, h2, h3, p, li, .problem-item { text-wrap: auto; }
 
       .header { padding: 10px 12px; }
@@ -695,9 +695,9 @@
       .menu-btn { width: 24px; }
       
       .nav-menu { width: 80%; } 
-      .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
+      .sec-title { font-size: 1.4rem; margin-bottom: 20px; } /* 余白短縮 */
 
-      .problems-wrap { padding: 30px 24px; margin: 20px auto; }
+      .problems-wrap { padding: 30px 24px; margin: 15px auto; } /* 余白短縮 */
       .problems-list { grid-template-columns: 1fr; }
       .problem-item { padding: 16px 15px; }
 
@@ -711,7 +711,7 @@
 
       .flow-step { padding: 25px 20px; gap: 15px; } 
 
-      .area-card { padding: 30px 15px; margin: 20px 0 0; } 
+      .area-card { padding: 30px 15px; margin: 15px 0 0; } /* 余白短縮 */
       .services-table th, .services-table td { padding: 15px 10px; font-size: 0.9rem; }
       .cancel-policy { padding: 25px 15px; }
       .reason-card { padding: 30px 20px; }
@@ -727,7 +727,7 @@
       text-align: center;
     }
     .line-cta-btn {
-      display: block; width: 100%; background: #06C755; text-decoration: none; border-radius: 16px; padding: 35px 20px; box-shadow: 0 8px 25px rgba(6, 199, 85, 0.2); transition: transform 0.3s; margin-bottom: 40px;
+      display: block; width: 100%; background: #06C755; text-decoration: none; border-radius: 16px; padding: 35px 20px; box-shadow: 0 8px 25px rgba(6, 199, 85, 0.2); transition: transform 0.3s; margin-bottom: 25px; /* 下余白を短縮 */
     }
     .line-cta-btn:hover { transform: translateY(-3px); }
     .line-badge { display: inline-block; background: #fff; color: #06C755; padding: 6px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; }
@@ -745,7 +745,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
     .tel-label { font-size: 1rem; color: var(--sub); font-weight: 500; margin-bottom: 10px; }
-    /* 最後の電話番号の改行対策 */
     .tel-number { color: var(--accent3); font-size: clamp(1.6rem, 6.5vw, 2.4rem); font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px; white-space: nowrap; word-break: keep-all; }
     .tel-number svg { width: 0.9em; height: 0.9em; }
     .tel-number:hover { opacity: 0.7; }
@@ -828,7 +827,7 @@
     </div>
   </section>
 
-  <section id="reasons" class="section fade-in" style="padding-top: 50px;">
+  <section id="reasons" class="section fade-in" style="padding-top: 25px;">
     <h2 class="sec-title">totonou が選ばれる<em>3</em>つの理由</h2>
     <div class="reasons-grid">
       <div class="reason-card">
@@ -993,7 +992,7 @@
         <div class="before-after-content">
           <h3>おもちゃ・絵本の収納</h3>
           <p><span class="ba-problem">【お悩み】</span>「この空間をスッキリさせたい」というご希望。収納グッズを使いすぎていて、逆に場所を取っていました。</p>
-          <p><span class="ba-solution">【解決◎】</span>不要な物を間引き、場所を取っていた大きな棚を撤去。下段にお子様が自分で出し入れできる物、上段に親のサポートが必要な物を配置し、収納グッズは最小限に。「モノの位置」を決め、シンプルで機能的な環境に整えました。</p>
+          <p><span class="ba-solution">【解決】</span>不要な物を間引き、場所を取っていた大きな棚を撤去。下段にお子様が自分で出し入れできる物、上段に親のサポートが必要な物を配置し、収納グッズは最小限に。「モノの位置」を決め、シンプルで機能的な環境に整えました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2.5時間</p>
         </div>
       </div>
@@ -1012,7 +1011,7 @@
         <div class="before-after-content">
           <h3>ウォークインクローゼット・納戸</h3>
           <p><span class="ba-problem">【お悩み】</span>使いづらさを解消したいというご依頼。家具の配置が動線を遮っていました。</p>
-          <p><span class="ba-solution">【解決◎】</span>家具の配置を最適化し、モノを「あるべき場所」へ。いる・いらないを徹底的に選別し、その場所で使う物だけを厳選して配置することで、驚くほど使いやすく生まれ変わりました。</p>
+          <p><span class="ba-solution">【解決】</span>家具の配置を最適化し、モノを「あるべき場所」へ。いる・いらないを徹底的に選別し、その場所で使う物だけを厳選して配置することで、驚くほど使いやすく生まれ変わりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2時間</p>
         </div>
       </div>
@@ -1031,11 +1030,11 @@
         <div class="before-after-content">
           <h3>物置部屋（衣類・日用品）</h3>
           <p><span class="ba-problem">【お悩み】</span>「人からもらった物が捨てられない」というお悩み。相手の気持ちを大切にするからこそ、手放せずにいました。</p>
-          <p><span class="ba-solution">【解決◎】</span>思い出と向き合う時間にじっくり寄り添いました。ご自身にとって本当に大切な「もらったモノ」はしっかりと残し、それ以外の物を整理。自分にとって何が大切かを確認できる部屋になりました。</p>
+          <p><span class="ba-solution">【解決】</span>思い出と向き合う時間にじっくり寄り添いました。ご自身にとって本当に大切な「もらったモノ」はしっかりと残し、それ以外の物を整理。自分にとって何が大切かを確認できる部屋になりました。</p>
           <p class="ba-time">
             <i class="far fa-clock"></i> 所要時間：8時間（1部屋）
             <span class="ba-details">
-              内訳：要不要の選択(2時間) / 茶色の棚の中の整理（思い出の品・書類・アルバム等）(4時間) / 家具移動・撤去(1時間) / 掃除(1時間)
+              内訳：要不要の選択(2時間) / 木製棚の整理（思い出の品・書類・アルバム等）(4時間) / 家具移動・撤去(1時間) / 掃除(1時間)
             </span>
           </p>
         </div>
@@ -1055,7 +1054,7 @@
         <div class="before-after-content">
           <h3>寝室・プライベート空間</h3>
           <p><span class="ba-problem">【お悩み】</span>「片付け方が分からない」という不安。使いづらかった古いタンスが場所を占領していました。</p>
-          <p><span class="ba-solution">【解決◎】</span>湿気を含んで使いづらくなっていた木製タンスを撤去し、配置を見直し。使いやすいプラスチック棚を活かして「モノの住所」を明確にしました。床が見え、安心して眠れる空間になりました。</p>
+          <p><span class="ba-solution">【解決】</span>湿気を含んで使いづらくなっていた木製タンスを撤去し、配置を見直し。使いやすいプラスチック棚を活かして「モノの住所」を明確にしました。床が見え、安心して眠れる空間になりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：4時間</p>
         </div>
       </div>
@@ -1140,7 +1139,7 @@
     </div>
   </section>
 
-  <section class="contact fade-in" id="contact" style="background: var(--bg-light); padding: 100px 6%;">
+  <section class="contact fade-in" id="contact" style="background: var(--bg-light); padding: 50px 6%;">
     <div class="contact-wrap">
       <h2 class="sec-title">まずはお気軽にご相談ください</h2>
       
