@@ -665,30 +665,30 @@
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* スマホ画面への最適化設定 */
-    @media (max-width: 768px) {
-      .header { padding: 10px 4%; }
-      .nav-logo img { height: 40px; margin-right: 8px; }
-      .nav-logo-text div { font-size: 1.2rem; }
-      .nav-logo span { font-size: 0.65rem; }
+@media (max-width: 768px) {
+      .header { padding: 10px 3%; }
+      .nav-logo img { height: 32px; margin-right: 6px; }
+      .nav-logo-text div { font-size: 1.1rem; }
+      .nav-logo span { font-size: 0.6rem; letter-spacing: 0.02em; }
       
       .header-tel { 
-        margin-right: 15px; 
-        font-size: 0.8rem; /* フォントサイズを微調整 */
-        gap: 4px;
-        white-space: nowrap; /* 追加：電話番号の改行を防ぐ */
+        margin-right: 10px; 
+        font-size: 0.75rem; 
+        gap: 3px;
+        white-space: nowrap; 
       }
-      .header-tel i { font-size: 0.8rem; }
+      .header-tel i { font-size: 0.75rem; }
+      .menu-btn { width: 26px; }
       
       .nav-menu { width: 80%; } 
       .sec-title { font-size: 1.4rem; margin-bottom: 40px; }
 
-      /* 追加：問題セクションの余白バランス調整 */
       .problems-wrap {
-        padding: 40px 20px; /* 左右の余白を適切に設定 */
+        padding: 40px 20px;
         margin: 20px auto;
       }
       .problems-list {
-        grid-template-columns: 1fr; /* スマホ時は確実に1列にする */
+        grid-template-columns: 1fr;
       }
 
       .greeting-wrap { flex-direction: column; }
@@ -697,8 +697,12 @@
       .profile { grid-template-columns: 1fr; padding: 30px 20px; }
       .profile-image { max-width: 250px; }
       .before-after { grid-template-columns: 1fr; }
-    }
 
+      .services-table th, .services-table td { padding: 15px 10px; font-size: 0.95rem; }
+      .cancel-policy { padding: 25px 15px; }
+      .reason-card { padding: 30px 20px; }
+      .model-card { padding: 30px 20px; }
+    }
     /* ========================================
        お問い合わせセクション 
     ======================================== */
