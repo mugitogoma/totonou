@@ -7,7 +7,7 @@
   <meta name="description" content="山梨県（甲府市・甲斐市・笛吹市ほか）の整理収納アドバイザー・内藤ちえこのサービスサイト。片付けで外側も内側も整えるお手伝いをします。1時間3,500円〜、交通費込。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     /* ========================================
       🎨 カラー設定
@@ -27,6 +27,15 @@
       --sans:      'Noto Sans JP', sans-serif;
       --rounded:   'M PLUS Rounded 1c', sans-serif;
     }
+
+    /* iPhoneのアイコン「□に✖」化けを強制ブロック */
+    i[class^="fa-"], i[class*=" fa-"] {
+      display: inline-block;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+    .fas { font-weight: 900 !important; }
+    .fab, .far { font-weight: 400 !important; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -684,6 +693,7 @@
         font-size: 0.75rem; 
         gap: 3px;
         white-space: nowrap; 
+        flex-shrink: 0; /* 追加: 電話番号が絶対に縮まないよう強制保護 */
       }
       .header-tel i { font-size: 0.75rem; }
       .menu-btn { width: 24px; }
