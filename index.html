@@ -625,7 +625,7 @@
     .ba-images { display: flex; gap: 2px; background: var(--line-light); }
     .ba-img-wrap { position: relative; flex: 1; aspect-ratio: 3 / 4; }
     .ba-img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .ba-label { position: absolute; top: 10px; left: 10px; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; color: #fff; border-radius: 4px; letter-spacing: 0.05em; font-family: var(--sans); }
+    .ba-label { position: absolute; top: 10px; left: 10px; padding: 0.8px 4px; font-size: 0.8rem; font-weight: bold; color: #fff; border-radius: 4px; letter-spacing: 0.05em; font-family: var(--sans); }
     /* Before / After ラベルの透かし色を指定色に変更 */
     .ba-label.before { background: rgba(41, 128, 168, 0.7); }
     .ba-label.after { background: rgba(41, 128, 168, 0.85); }
@@ -655,7 +655,8 @@
     .testimonial-author { margin-top: auto; font-size: 0.95rem; color: var(--accent3); text-align: right; font-weight: 500; border-top: 1px dashed var(--line-light); padding-top: 15px; }
     .testimonial-author svg { margin-right: 8px; width: 1em; height: 1em; }
     .customer-meta { display: inline-block; letter-spacing: 0.02em; }
-    .testimonial-content svg { color: var(--accent2); margin-right: 8px; width: 1.2em; height: 1.2em;} 
+    .testimonial-content svg.fa-quote-left { color: var(--accent2); margin-right: 8px; width: 1.2em; height: 1.2em; }
+    .testimonial-content svg.fa-quote-right { color: var(--accent2); margin-left: 8px; width: 1.2em; height: 1.2em; }
 
     /* Profile Section */
     .profile-section { padding: 50px 6%; /* 上下余白を半分に短縮 */ }
@@ -822,8 +823,8 @@
           「どんな人が家に来るの？」「こんなに散らかっていて恥ずかしい…」そんな不安を抱えていませんか？
         </p>
         <p style="margin-top: 15px;">
-          ご安心ください。まずは丁寧にお話を伺い、無理のないペースで一緒に解決策を見つけていきます。<br>
-          片付けのプロとして、あなたの暮らしに優しく寄り添います。
+          ご安心ください。まずはお話を伺い、無理のないペースで一緒に解決策を見つけていきます。<br>
+          片付けのプロと一緒に、ちょうどいい暮らしのカタチを見つけていきましょう。
         </p>
       </div>
     </div>
@@ -865,7 +866,7 @@
           <div class="flow-num">2</div>
           <div class="flow-text">
             <h3>事前のヒアリング・お見積り</h3>
-            <p>LINEやお電話、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします。その際、おおよสะの作業時間とお見積り額を無料でご提示いたします。</p>
+            <p>LINEやお電話、または事前のビデオ通話等で、お困りごとや理想の暮らしについて詳しくお伺いします。その際、おおよその作業時間とお見積り額を無料でご提示いたします。</p>
           </div>
         </div>
         <div class="flow-step">
@@ -993,8 +994,8 @@
         </div>
         <div class="before-after-content">
           <h3>おもちゃ・絵本の収納</h3>
-          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>お悩み</span>「この空間をスッキリさせたい」というご希望。収納グッズを使いすぎていて、逆に場所を取っていました。</p>
-          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>解決</span>不要な物を間引き、場所を取っていた大きな棚を撤去。下段にお子様が自分で出し入れできる物、上段に親のサポートが必要な物を配置し、収納グッズは最小限に。「モノの位置」を決め、シンプルで機能的な環境に整えました。</p>
+          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>【お悩み】</span>「この空間をスッキリさせたい」というご希望。収納グッズを使いすぎていて、逆に場所を取っていました。</p>
+          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>【解決】</span>不要な物を間引き、場所を取っていた大きな棚を撤去。下段にお子様が自分で出し入れできる物、上段に親のサポートが必要な物を配置し、収納グッズは最小限に。「モノの位置」を決め、シンプルで機能的な環境に整えました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2.5時間</p>
         </div>
       </div>
@@ -1012,8 +1013,8 @@
         </div>
         <div class="before-after-content">
           <h3>ウォークインクローゼット・納戸</h3>
-          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>お悩み</span>使いづらさを解消したいというご依頼。家具の配置が動線を遮っていました。</p>
-          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>解決</span>家具の配置を最適化し、モノを「あるべき場所」へ。いる・いらないを徹底的に選別し、その場所で使う物だけを厳選して配置することで、驚くほど使いやすく生まれ変わりました。</p>
+          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>【お悩み】</span>使いづらさを解消したいというご依頼。家具の配置が動線を遮っていました。</p>
+          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>【解決】</span>家具の配置を最適化し、モノを「あるべき場所」へ。いる・いらないを徹底的に選別し、その場所で使う物だけを厳選して配置することで、驚くほど使いやすく生まれ変わりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：2時間</p>
         </div>
       </div>
@@ -1031,8 +1032,8 @@
         </div>
         <div class="before-after-content">
           <h3>物置部屋（衣類・日用品）</h3>
-          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>お悩み</span>「人からもらった物が捨てられない」というお悩み。相手の気持ちを大切にするからこそ、手放せずにいました。</p>
-          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>解決</span>思い出と向き合う時間にじっくり寄り添いました。ご自身にとって本当に大切な「もらったモノ」はしっかりと残し、それ以外の物を整理。自分にとって何が大切かを確認できる部屋になりました。</p>
+          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>【お悩み】</span>「人からもらった物が捨てられない」というお悩み。相手の気持ちを大切にするからこそ、手放せずにいました。</p>
+          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>【解決】</span>思い出と向き合う時間にじっくり寄り添いました。ご自身にとって本当に大切な「もらったモノ」はしっかりと残し、それ以外の物を整理。自分にとって何が大切かを確認できる部屋になりました。</p>
           <p class="ba-time">
             <i class="far fa-clock"></i> 所要時間：8時間（1部屋）
             <span class="ba-details">
@@ -1055,8 +1056,8 @@
         </div>
         <div class="before-after-content">
           <h3>寝室・プライベート空間</h3>
-          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>お悩み</span>「片付け方が分からない」という不安。使いづらかった古いタンスが場所を占領していました。</p>
-          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>解決</span>湿気を含んで使いづらくなっていた木製タンスを撤去し、配置を見直し。使いやすいプラスチック棚を活かして「モノの住所」を明確にしました。床が見え、安心して眠れる空間になりました。</p>
+          <p><span class="ba-problem"><i class="fas fa-comment-dots"></i>【お悩み】</span>「片付け方が分からない」という不安。使いづらかった古いタンスが場所を占領していました。</p>
+          <p><span class="ba-solution"><i class="fas fa-lightbulb"></i>【解決】</span>湿気を含んで使いづらくなっていた木製タンスを撤去し、配置を見直し。使いやすいプラスチック棚を活かして「モノの住所」を明確にしました。床が見え、安心して眠れる空間になりました。</p>
           <p class="ba-time"><i class="far fa-clock"></i> 所要時間：4時間</p>
         </div>
       </div>
@@ -1070,7 +1071,7 @@
       <div class="testimonials-grid">
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>キッチンの整理整頓をお願いしました。とても丁寧にヒアリングしてくださり、一緒に作業していただきました。自分だけでは考えつかないような収納方法を教えていただき、本当に助かりました。
+            <i class="fas fa-quote-left"></i>キッチンの整理整頓をお願いしました。とても丁寧にヒアリングしてくださり、一緒に作業していただきました。自分だけでは考えつかないような収納方法を教えていただき、本当に助かりました。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
@@ -1078,7 +1079,7 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>何に困っているのか丁寧に聴いていただきました。作業スピードに追いつかず、困っていると泣いてしまうこともありましたが、片付けの基本から学んだ気持ちです。
+            <i class="fas fa-quote-left"></i>何に困っているのか丁寧に聴いていただきました。作業スピードに追いつかず、困っていると泣いてしまうこともありましたが、片付けの基本から学んだ気持ちです。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <i class="fas fa-user-circle"></i><span class="customer-meta">甲斐市 ・ 40代 女性 ・ U様</span>
@@ -1086,7 +1087,7 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>物がたくさんあり、どこからどう片付けて良いかわかりませんでしたが、アドバイスをいただきながらサクサクと片付けできました。大きな棚が2つ分も一階から撤去でき、本当に助かりました。
+            <i class="fas fa-quote-left"></i>物がたくさんあり、どこからどう片付けて良いかわかりませんでしたが、アドバイスをいただきながらサクサクと片付けできました。大きな棚が2つ分も一階から撤去でき、本当に助かりました。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 30代 女性 ・ M様</span>
@@ -1094,7 +1095,7 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>家全体を整えていくという計画で、まずはクローゼットの整理からしていただきました。すごく整って子供も感動していました！ありがとうございました。
+            <i class="fas fa-quote-left"></i>家全体を整えていくという計画で、まずはクローゼットの整理からしていただきました。すごく整って子供も感動していました！ありがとうございました。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <i class="fas fa-user-circle"></i><span class="customer-meta">甲府市 ・ 40代 女性 ・ K様</span>
@@ -1102,7 +1103,7 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>時間配分も細かく考えてくださって、どっちを優先しますか？これならこのくらいでできそうなど、コミュニケーションをしっかり取ってくださって、時間内にまとめて完了していただけました。
+            <i class="fas fa-quote-left"></i>時間配分も細かく考えてくださって、どっちを優先しますか？これならこのくらいでできそうなど、コミュニケーションをしっかり取ってくださって、時間内にまとめて完了していただけました。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <i class="fas fa-user-circle"></i><span class="customer-meta">甲州市 ・ 40代 女性 ・ N様</span>
@@ -1110,7 +1111,7 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-content">
-            <i class="fas fa-quote-left"></i>前回同様、使いやすくスッキリと片付けていただきアドバイスももらえてとても助かりました。またお願いする際はよろしくお願いします。
+            <i class="fas fa-quote-left"></i>前回同様、使いやすくスッキリと片付けていただきアドバイスももらえてとても助かりました。またお願いする際はよろしくお願いします。<i class="fas fa-quote-right"></i>
           </div>
           <div class="testimonial-author">
             <span class="customer-meta"><span class="ib"><i class="fas fa-user-circle"></i>山梨市</span> ・ 30代 男性 ・ <span class="ib">I様(リピート)</span></span>
